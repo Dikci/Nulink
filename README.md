@@ -5,7 +5,7 @@ GREEN='\033[0;32m'
 YELLOW='\033[0;33m'
 NC='\033[0m'
 
-echo -e "${YELLOW}This creak was written by Werevart${NC}"
+echo -e "${YELLOW}This creak was written by Dikci${NC}"
 
 apt install ufw -y
 
