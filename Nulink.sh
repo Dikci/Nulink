@@ -5,7 +5,7 @@ GREEN='\033[0;32m'
 YELLOW='\033[0;33m'
 NC='\033[0m'
 
-echo -e "${YELLOW}This creak was written by Werevart${NC}"
+echo -e "${YELLOW}This creak was written by Dikci${NC}"
 
 apt install ufw -y
 
@@ -15,9 +15,9 @@ ufw allow http
 ufw allow 9151
 ufw enable
 
-sudo apt-get update
+sudo apt-get update -q
 
-sudo apt-get install ca-certificates curl gnupg
+sudo apt-get install -qy ca-certificates curl gnupg
 
 sudo install -m 0755 -d /etc/apt/keyrings
 
@@ -30,9 +30,9 @@ echo \
   $(. /etc/os-release && echo "$VERSION_CODENAME") stable" | \
   sudo tee /etc/apt/sources.list.d/docker.list > /dev/null
 
-sudo apt-get update
+sudo apt-get update -q
 
-sudo apt-get install docker-ce docker-ce-cli containerd.io docker-buildx-plugin docker-compose-plugin
+sudo apt-get install -qy docker-ce docker-ce-cli containerd.io docker-buildx-plugin docker-compose-plugin -y
 
 echo -e "${GREEN}The preparation for the installation of the node has been successfully completed${NC}"
 
@@ -81,6 +81,7 @@ nulink/nulink nulink ursula init \
 --payment-network bsc_testnet \
 --operator-address "$WORKER_ADDRESS" \
 --max-gas-price 10000000000
+
 
 docker run --restart on-failure -d \
 --name ursula \
